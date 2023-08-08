@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Users = () => {
     const [users, setUsers] = useState([{
@@ -6,7 +7,8 @@ const Users = () => {
     }])
   return (
     <div className="d-flex container-fluid vh-100 text-bg-primary justify-content-center align-items-center">
-        <div className='w-50 text-bg-dark rounded p-4'>
+        <div className=' w-75 lg:w-80 text-bg-dark  rounded p-4'>
+        <Link to="/create" className='btn btn-warning mb-4'>Add +</Link>
             <table className='table'>
                 <thead>
                     <th>Name</th>
@@ -18,12 +20,12 @@ const Users = () => {
                 <tbody>
                     {
                         users.map((user) => {
-                            <tr>
+                           return <tr>
                                 <td>{user.Name}</td>
                                 <td>{user.Email}</td>
                                 <td>{user.Age}</td>
-                                <td>
-                                    <button>Edit</button>
+                                <td className='d-flex p-2'>
+                                <Link to="/update" className='btn btn-success mb-4'>Update</Link>
                                     <button>Delete</button>
                                 </td>
                             </tr>
